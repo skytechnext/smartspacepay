@@ -4,6 +4,63 @@
 > proposed contract structure, a one-hour consultation with a lawyer before
 > responding to the monthly-fee proposal is strongly recommended.
 
+---
+
+## UPDATE (July 2026) — current recommendations given the signed contract
+
+The evidence in `04-evidence-log.md` shows the monthly-fee contract was
+signed and Sections A–B below (written pre-signing) are partly overtaken.
+The current position: the debt is acknowledged in writing, the written
+"All before CNY" deadline was missed five months ago, deduction attempts
+were made and withdrawn, and the Jan–Jun tranche is being reframed as a
+reducible future-service payout. Priorities now:
+
+1. **Send a written payment demand, not another chase message.** The chasing
+   pattern ("could you help to make the alt payment?") invites "ok will
+   check". Replace it with a dated demand: the outstanding amount, the fact
+   it is for 2025 renovation works completed and acknowledged, the missed
+   written deadline (3 Feb: "All before CNY"), and a specific payment date
+   14 days out. Attach the invoice. Send by email as well as WhatsApp so it
+   exists outside chat.
+2. **Refuse the "partial payout" reframing in writing.** Reply to the 6 Mar
+   framing plainly: the Jan–Jun monies are payment for completed 2025
+   renovation works under the agreed split; they are not contingent on who
+   performs future service, and partial payment is not agreed. Future
+   service (7 days/month, Hanif, extra days billed by invoice) is a separate
+   arrangement — keep the two threads in separate messages/emails.
+3. **Kill the deduction claims while they are conceded.** Yvonne wrote "OK"
+   to "No deduction" on 6 Mar. Confirm it in writing once ("as agreed on
+   6 March, no deductions apply — the Yeemax commission and equipment points
+   are not accepted") so the $12K+$12K+$12K commission claim and the
+   "equipment that might have been taken" insinuation cannot quietly return.
+   If the equipment remark is ever repeated, ask for specifics in writing —
+   do not leave an implied accusation standing.
+4. **Stop free work until the debt clears.** No more vendor-invoice audits,
+   Tricomp coordination, e-sign chasing, or invoice re-formats. Each has
+   been absorbed with thanks and no payment. A polite standard line: "Happy
+   to pick this up once the outstanding reno payment is settled."
+5. **De-tangle the cross-invoice pressure.** If Autolifetech/TechNext genuinely
+   owes Yvonne's firm for corp-sec services, pay it or dispute it on its own
+   merits — then remove that lever. Never accept netting-off unless it is
+   documented and the reno debt amount is first confirmed in writing.
+6. **Attend the meeting only with the transfer condition intact.** Clement's
+   10 Jul line — transfer before further meetings — was right. If a meeting
+   happens first, send a one-line agenda beforehand ("Confirming Monday's
+   meeting is to confirm the transfer date for the outstanding 2025 reno
+   payment of $X") and a same-day written recap after.
+7. **Set the escalation clock now.** If the 14-day demand lapses: letter of
+   demand from a lawyer, then Small Claims Tribunal / SCT-equivalent or civil
+   claim depending on quantum. The written record (acknowledged debt, missed
+   written deadline, no dispute raised in six months) makes this unusually
+   clean. Escalating with a lawyer's letter is compatible with continuing
+   the friendship narrative: "the work was done 18 months ago; I just need
+   it closed."
+
+The sections below are retained for history and for the still-relevant
+process guidance (Sections C–F).
+
+---
+
 ## A. Decide the position before the next contact
 
 ### 1. Do not sign the monthly-fee contract as proposed

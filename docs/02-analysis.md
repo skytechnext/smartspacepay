@@ -103,7 +103,51 @@ document intended to misinform her own finance function.
   but they have so far functioned one-directionally: as leverage against
   Clement, not as protection for him.
 
-## 7. The rushed-meeting dynamic
+## 7. Post-contract evidence (Jan–Jul 2026): the predicted risks materialised
+
+The WhatsApp records in `04-evidence-log.md` show the contract was signed and
+that the risks identified in §5 played out almost exactly:
+
+1. **The verbal promises were not honoured.** "All before CNY" (3 Feb 2026,
+   in writing) passed unpaid. Five months later (10 Jul 2026) Clement's
+   accounts confirm "last year Reno payment not done". The "immediate"
+   first-tranche payment became a monthly payroll drip ("inside tgt with your
+   monthly salary", 24 Mar).
+2. **The 2026 tranche is being treated as a cancellable service fee.** On
+   6 Mar Yvonne describes "working out sums for a total payout of the Jan-Jun
+   monies, **if not partial**" and ties it to "who would fulfil in the
+   meantime" — i.e., money owed for completed 2025 works is now openly
+   discussed as (a) reducible and (b) conditional on future service delivery.
+   This is §5.2 happening in real time.
+3. **New counter-claims appeared.** On 6 Mar Yvonne floated deductions: "20%
+   commissions from Yeemax's payments $12K+$12K+$12K" and "$500 worth of
+   equipment that **might have been taken**". Clement rejected them ("No
+   deduction") and Yvonne conceded ("OK") — but the attempt signals the next
+   negotiation front, and the equipment remark edges toward an accusation
+   that should not be left ambiguous if repeated.
+4. **The entangled relationships are being used as leverage.** Yvonne's group
+   provides corp-sec/accounting services to Clement's TechNext. On 11 Mar,
+   payment of the reno money was conditioned on Clement "pay[ing] your
+   Invoice first". Meanwhile Clement keeps doing unpaid extras for
+   SmartSpace: Yeemax invoice tallying that found them savings (3 Feb),
+   Tricomp coordination, chasing director e-signatures (25 Feb), invoice
+   re-formatting (10 Mar).
+5. **The gatekeeper pattern intensified.** Aiveen is invoked at nearly every
+   payment touchpoint — files to be dug up, medical leave (twice), payroll
+   files, reminders — while never being someone Clement can deal with
+   directly on the debt.
+6. **What has improved:** the written record is now strong. There is a
+   written acknowledgment of the debt ("I'm making $$ as fast as we can to
+   pay, Clement", 15 Jan), a written payment deadline ("All before CNY",
+   3 Feb), written confirmation the payment was still outstanding months
+   later (Yvonne's own "Oh wait not done since?" 24 Mar; "Ok will check"
+   10 Jul), and a contemporaneous written record that the work was delivered
+   at a loss. At no point in six months of chasing does Yvonne dispute that
+   the money is owed. Legally and commercially, that combination — undisputed
+   debt, missed written deadline, documented loss — is a far stronger
+   position than the pre-contract situation.
+
+## 8. The rushed-meeting dynamic
 
 Meetings that are always short, always incomplete, and always end with a new
 homework assignment for Clement keep the negotiation permanently open and

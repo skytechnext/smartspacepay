@@ -70,6 +70,37 @@ After discussing with her team, Yvonne proposed a **monthly fee model**:
 - Financial effect: the total under this model is below Autolifetech's cost.
   The arrangement has moved from **cost-plus to a loss model**.
 
+## Phase 2 — After the monthly-fee contract (Jan–Jul 2026)
+
+Documented in detail, with quotes, in [04-evidence-log.md](04-evidence-log.md).
+The contract was signed; the arrangement now runs as a monthly salary tied to
+7 days/month of service at SmartSpace.
+
+- **15 Jan 2026** — Clement states in writing he is not confident of payment
+  even covering basic cost. Yvonne: "I'm making $$ as fast as we can to pay,
+  Clement" — written acknowledgment that money is owed.
+- **3 Feb 2026** — Clement tallies Yeemax's invoices for SmartSpace (free
+  verification work, identifying savings). Yvonne, in writing: "we will close
+  with Yeemax first then move on to the other payments. **All before CNY.**"
+- **17 Feb 2026** — Chinese New Year. No payment.
+- **23 Feb – 6 Mar 2026** — Clement chases the "alt payment" repeatedly.
+  Responses: "Missed this msg yest! Ok will check", travel small-talk, new
+  task requests. On 6 Mar Yvonne raises: continuation of the 7-days/month
+  salary arrangement, a possible "total payout of the Jan-Jun monies, if not
+  partial" tied to who fulfils future service, and attempted deductions
+  (20% Yeemax commissions; "$500 worth of equipment that might have been
+  taken"). Clement rejects deductions; Yvonne accepts ("OK", "On it!").
+- **10–11 Mar 2026** — New invoice re-format requested. Aiveen returns from
+  medical leave and conditions payment on Clement paying an invoice from
+  Yvonne's side first (the entangled corp-sec/services relationship).
+- **24 Mar 2026** — Payment said to be "inside" the monthly payroll file with
+  Clement's salary — a drip via payroll instead of the promised transfer.
+- **10 Jul 2026** — Clement confirms from his accounts: "last year Reno
+  payment not done… came out at a loss. Make the transfer before any other
+  interviews of meeting." Yvonne drops "interviews" but still requires a
+  Monday meeting; payment remains unmade. Clement: "What happened to all
+  these?"
+
 ## Constant conditions across all meetings
 
 - Meetings with Yvonne were hard to schedule; every meeting was rushed and the

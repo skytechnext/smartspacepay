@@ -23,7 +23,8 @@ renovation works carried out in 2025.
 |---|---|
 | [docs/01-timeline.md](docs/01-timeline.md) | Chronological record of every meeting and change of billing model |
 | [docs/02-analysis.md](docs/02-analysis.md) | Pattern analysis, financial impact, and risk assessment |
-| [docs/03-recommendations.md](docs/03-recommendations.md) | Recommended negotiation position, counter-proposal, and next steps |
+| [docs/03-recommendations.md](docs/03-recommendations.md) | Recommended negotiation position, counter-proposal, and next steps (see July 2026 update at top) |
+| [docs/04-evidence-log.md](docs/04-evidence-log.md) | Dated WhatsApp evidence log (Jan–Jul 2026) with key quotes and what they establish |
 
 ## Key people
 
