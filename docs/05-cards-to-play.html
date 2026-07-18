@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cards to Play — Autolifetech ↔ SmartSpace (18 Jul 2026)</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#15181d; --muted:#5b626d;
+    --line:#e4e7ec; --accent:#1f6feb; --accent-ink:#0b4bbf;
+    --soft:#0e8a5f; --soft-bg:#e7f7ef;
+    --lev:#b9770a; --lev-bg:#fdf3e0;
+    --doc:#5a37c9; --doc-bg:#efeafd;
+    --hard:#c23b2e; --hard-bg:#fdecea;
+    --wild:#0f8fa6; --wild-bg:#e3f6fa;
+    --red:#c0271b; --red-bg:#fdeceb; --red-line:#f3b6b0;
+    --chip:#eef1f5; --chip-ink:#3a4150;
+    --shadow:0 1px 2px rgba(16,24,40,.06),0 4px 14px rgba(16,24,40,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1116; --panel:#161b22; --ink:#e8ecf1; --muted:#9aa4b2;
+      --line:#262c36; --accent:#5b9bff; --accent-ink:#8fbaff;
+      --soft:#3fd39a; --soft-bg:#0f2a20;
+      --lev:#eab24c; --lev-bg:#2c2210;
+      --doc:#b6a2ff; --doc-bg:#221a3c;
+      --hard:#ff7a6b; --hard-bg:#331714;
+      --wild:#54cfe4; --wild-bg:#0c2a30;
+      --red:#ff8177; --red-bg:#2c1310; --red-line:#5e2a24;
+      --chip:#222834; --chip-ink:#c3ccd8;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1040px;margin:0 auto;padding:32px 20px 80px;}
+  header.top{border-bottom:2px solid var(--line);padding-bottom:22px;margin-bottom:8px;}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px;letter-spacing:-.02em;}
+  .sub{color:var(--muted);font-size:15px;margin:0;}
+  .stamp{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--muted);
+    border:1px solid var(--line);border-radius:999px;padding:4px 12px;}
+  h2{font-size:21px;margin:40px 0 6px;letter-spacing:-.01em;}
+  h2 .num{color:var(--muted);font-weight:700;margin-right:8px;}
+  .lead{color:var(--muted);margin:0 0 18px;max-width:78ch;}
+  p{max-width:80ch;}
+  .callout{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--accent);
+    border-radius:10px;padding:14px 16px;margin:16px 0;box-shadow:var(--shadow);}
+  .callout.warn{border-left-color:var(--lev);}
+  .callout strong{color:var(--ink);}
+
+  /* leverage inventory */
+  .inv{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin:14px 0;}
+  .inv div{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:11px 13px;
+    box-shadow:var(--shadow);font-size:14.5px;}
+  .inv b{display:block;font-size:13px;color:var(--accent-ink);margin-bottom:2px;}
+
+  /* tier band */
+  .tier{margin-top:34px;}
+  .tierhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 4px;}
+  .badge{font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;
+    padding:4px 10px;border-radius:6px;}
+  .b-soft{background:var(--soft-bg);color:var(--soft);}
+  .b-lev{background:var(--lev-bg);color:var(--lev);}
+  .b-doc{background:var(--doc-bg);color:var(--doc);}
+  .b-hard{background:var(--hard-bg);color:var(--hard);}
+  .b-wild{background:var(--wild-bg);color:var(--wild);}
+  .tierdesc{color:var(--muted);font-size:14.5px;margin:2px 0 14px;}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px 16px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px;border-top:3px solid var(--line);}
+  .card.t-soft{border-top-color:var(--soft);}
+  .card.t-lev{border-top-color:var(--lev);}
+  .card.t-doc{border-top-color:var(--doc);}
+  .card.t-hard{border-top-color:var(--hard);}
+  .card.t-wild{border-top-color:var(--wild);}
+  .card h3{margin:0;font-size:16px;line-height:1.3;display:flex;gap:8px;align-items:baseline;}
+  .card h3 .k{font-size:12px;font-weight:800;color:var(--muted);border:1px solid var(--line);
+    border-radius:6px;padding:1px 7px;flex:none;}
+  .card p{margin:0;font-size:14px;color:var(--ink);}
+  .card .how{font-size:13.5px;color:var(--muted);}
+  .card .how b{color:var(--ink);}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+  .chip{font-size:11.5px;background:var(--chip);color:var(--chip-ink);border-radius:6px;padding:3px 8px;}
+  .chip.lvl3::before{content:"●●●";color:var(--hard);margin-right:5px;letter-spacing:1px;}
+  .chip.lvl2::before{content:"●●○";color:var(--lev);margin-right:5px;letter-spacing:1px;}
+  .chip.lvl1::before{content:"●○○";color:var(--soft);margin-right:5px;letter-spacing:1px;}
+
+  /* red lines */
+  .redbox{background:var(--red-bg);border:1px solid var(--red-line);border-radius:12px;
+    padding:6px 18px 16px;margin-top:14px;}
+  .redbox h3{color:var(--red);}
+  .redlist{list-style:none;padding:0;margin:0;}
+  .redlist li{padding:10px 0;border-bottom:1px dashed var(--red-line);}
+  .redlist li:last-child{border-bottom:none;}
+  .redlist b{color:var(--red);}
+  .no{color:var(--red);font-weight:800;margin-right:6px;}
+
+  /* sequence */
+  .seq{display:grid;gap:12px;margin-top:8px;}
+  .step{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;
+    background:var(--panel);border:1px solid var(--line);border-radius:11px;padding:13px 15px;box-shadow:var(--shadow);}
+  .step .n{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;}
+  .step h4{margin:0 0 3px;font-size:15.5px;}
+  .step p{margin:0;font-size:14px;color:var(--muted);}
+  .step .plays{font-size:12.5px;color:var(--accent-ink);margin-top:5px;}
+
+  /* branch table */
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px;
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow);}
+  th,td{text-align:left;padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{background:var(--chip);font-size:12.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--chip-ink);}
+  tr:last-child td{border-bottom:none;}
+  td b{color:var(--ink);}
+  .wraptable{overflow-x:auto;}
+
+  footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;}
+  .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--chip);
+    border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:12.5px;}
+  @media (max-width:560px){ h1{font-size:24px;} .step{grid-template-columns:36px 1fr;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Cards You Can Play</h1>
+  <p class="sub">Autolifetech (Clement) ↔ SmartSpace (Yvonne) — recovering payment for completed 2025 renovation works while protecting your position.</p>
+  <span class="stamp">Snapshot as of 18 July 2026 · strategy note, not legal advice</span>
+</header>
+
+<p class="lead">A "card" is a discrete move — a message, a step, a decision — that changes the board. They are grouped by <strong>escalation tier</strong>. The golden rule up front: your strongest position is <em>creditor with clean hands</em> — an undisputed debt, a missed written deadline, and documented losses. Almost every card below is designed to press that advantage <strong>without</strong> ever surrendering it. The cards in the red section forfeit it instantly — do not play them.</p>
+
+<div class="callout">
+<strong>The single most important framing:</strong> Your leverage is that you <em>add</em> enormous value and can stop adding it. It is <strong>not</strong> that you can take away or damage what SmartSpace already owns. "I will stop doing new and free work until I'm paid" is powerful and lawful. "I will lock/disable/withhold your systems until I'm paid" is extortion, likely a Computer Misuse offence, and it converts you from the wronged party into the wrongdoer. Stay on the right side of that line and you keep both the moral high ground and the courtroom.
+</div>
+
+<!-- ============ LEVERAGE INVENTORY ============ -->
+<h2><span class="num">01</span>Your hand — the leverage you actually hold</h2>
+<p class="lead">Before choosing cards, know your assets. This is unusually strong.</p>
+<div class="inv">
+  <div><b>Operational indispensability</b>WiFi, cybersecurity, electrical, electronics, every device, Home Assistant, the Room Control Unit — you run all of it.</div>
+  <div><b>The brains of the build</b>Master plan, 5-year plan, floor plans, all renovation information, every physical-IT decision. No one else holds the whole picture.</div>
+  <div><b>Continuity risk</b>If you step back, there is no one to maintain or manage. Many things become very hard, fast.</div>
+  <div><b>Vendor hub</b>You are the trusted coordinator for Tricomp, Yeemax, Skymac and others. SmartSpace reaches its vendors through you.</div>
+  <div><b>The paper trail</b>Debt acknowledged in writing (15 Jan), "All before CNY" promise (3 Feb), loss documented (10 Jul), never once disputed.</div>
+  <div><b>The future pipeline</b>"Next Reno works", the 5-year plan, ongoing service — SmartSpace needs you <em>going forward</em>, not just for the past.</div>
+  <div><b>Entangled services</b>Your TechNext side and Yvonne's firm (accounting / corp-sec) do business both ways — a lever they've used, and one you can neutralise.</div>
+  <div><b>Independent vendor pressure</b>Tricomp unpaid, Yeemax angry at re-checking a 6-month-old invoice, Skymac stretched — pressure on SmartSpace that exists without you lifting a finger.</div>
+</div>
+
+<!-- ============ TIER 1 SOFT ============ -->
+<div class="tier">
+  <div class="tierhead"><span class="badge b-soft">Tier 1 · Soft / Opening</span></div>
+  <p class="tierdesc">Low escalation, fully reversible, relationship-preserving. Their real job is to <strong>build the written record</strong> and force clarity. Play these first — always.</p>
+  <div class="cards">
+
+    <div class="card t-soft"><h3><span class="k">S1</span>Consolidated statement of account</h3>
+      <p>One document: total owed for 2025 reno works, one final agreed figure, no more re-formatting.</p>
+      <p class="how"><b>How:</b> Anchor on the itemised bill (the Zuh/Nabil-style format Yvonne herself asked for). Send as PDF + email, not just WhatsApp.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Reversible</span></div>
+    </div>
+
+    <div class="card t-soft"><h3><span class="k">S2</span>"Confirm the amount so I can close my books"</h3>
+      <p>Ask Yvonne to confirm the figure in writing — framed as an accounting housekeeping request, not a confrontation.</p>
+      <p class="how"><b>Why:</b> A one-line "yes we owe $X" turns an implied debt into an admitted one. She has already never disputed it.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Sets up every hard card</span></div>
+    </div>
+
+    <div class="card t-soft"><h3><span class="k">S3</span>Dated demand with a real deadline</h3>
+      <p>Replace "could you help make the alt payment?" with: amount, reason, the missed "All before CNY" promise, and a firm date 14 days out.</p>
+      <p class="how"><b>How:</b> Neutral, factual, no anger. A demand invites a date; a chase invites "ok will check".</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Starts the clock</span></div>
+    </div>
+
+    <div class="card t-soft"><h3><span class="k">S4</span>Same-day written recap after every contact</h3>
+      <p>After each meeting/call: "Confirming what we agreed today: …". Silence in reply becomes evidence.</p>
+      <p class="how"><b>Why:</b> Kills the rushed-meeting reset loop where verbal agreements evaporate by the next meeting.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Do this every time</span></div>
+    </div>
+
+    <div class="card t-soft"><h3><span class="k">S5</span>Lock in "no deductions, as agreed"</h3>
+      <p>Confirm in writing that the 6 Mar concession stands: no Yeemax 20% commission offset, no "$500 equipment" claim.</p>
+      <p class="how"><b>Why:</b> She already replied "OK". Pin it before it quietly returns as a bargaining chip.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Defensive</span></div>
+    </div>
+
+    <div class="card t-soft"><h3><span class="k">S6</span>Separate the three threads</h3>
+      <p>Keep (a) 2025 reno debt, (b) ongoing 7-days/month service, and (c) the TechNext↔her-firm invoices in <em>separate</em> messages.</p>
+      <p class="how"><b>Why:</b> She wins by blending them ("pay your invoice first"). You win by isolating the clean, undisputed debt.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: low</span><span class="chip">Structural</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ TIER 2 LEVERAGE ============ -->
+<div class="tier">
+  <div class="tierhead"><span class="badge b-lev">Tier 2 · Leverage — withdraw future value</span></div>
+  <p class="tierdesc">Legitimate pressure built entirely on <strong>ceasing to add value</strong>. You never touch what they own — you simply stop giving away your time, expertise, and future work for free. Announce, don't sabotage.</p>
+  <div class="cards">
+
+    <div class="card t-lev"><h3><span class="k">L1</span>Stop all free / unbilled work</h3>
+      <p>No more vendor-invoice audits, Tricomp coordination, e-sign chasing, or invoice re-formatting until the debt is settled.</p>
+      <p class="how"><b>Script:</b> "Happy to pick this up again once the outstanding reno payment is settled." Per the 6 Mar agreement, extra days already bill by invoice — enforce it.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Reversible</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L2</span>Hand vendor coordination back</h3>
+      <p>Stop being the free buffer between SmartSpace and Tricomp / Yeemax / Skymac. Route vendors to Aiveen / Yvonne directly.</p>
+      <p class="how"><b>Effect:</b> They feel the full weight of unpaid Tricomp, an angry Yeemax, and a stretched Skymac without you absorbing it. This is real, and it's not your doing.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Wild-card synergy</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L3</span>Pause future deliverables</h3>
+      <p>Next reno plans, 5-year-plan updates, new floor plans — future work you haven't been paid for. Decline to produce more until the past is cleared.</p>
+      <p class="how"><b>Line:</b> "I can't take on the next phase while the last one is unpaid." Note: keep <em>existing</em> deliverables intact (see red lines).</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Reversible</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L4</span>Condition the next project on clearing the old one</h3>
+      <p>Yvonne asked you to "send the plans for next Reno works". That request is your leverage: no new project starts until 2025 is paid.</p>
+      <p class="how"><b>Why it works:</b> She needs your forward involvement more than she needs to win the past. Tie the two together — on your terms, once.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Strong</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L5</span>Remove the friend discount from future work</h3>
+      <p>All the discounting was given in exchange for prompt payment that never came. Future work reverts to standard commercial rates.</p>
+      <p class="how"><b>Frame:</b> "The mates' rates were tied to being paid on time — that didn't happen, so going forward it's standard pricing."</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Repricing</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L6</span>Notice to scale back the 7-days/month</h3>
+      <p>Give formal notice that your ongoing monthly service reduces / ends unless arrears and terms are regularised.</p>
+      <p class="how"><b>How:</b> In writing, with a date. Offer Hanif / a qualified stand-in for handover continuity (you already agreed this is allowed) — professional, not abrupt.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: med-high</span><span class="chip">Notice period matters</span></div>
+    </div>
+
+    <div class="card t-lev"><h3><span class="k">L7</span>Reject the "partial payout" reframing</h3>
+      <p>State plainly that the Jan–Jun monies are payment for <em>completed 2025 works</em>, not a future-service fee that can be reduced or made conditional on who fulfils service.</p>
+      <p class="how"><b>Why:</b> This is the exact spot (6 Mar) where a fixed debt is being turned into a soft, cancellable one. Refuse it in writing now.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Defensive + offensive</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ TIER 3 DOC ============ -->
+<div class="tier">
+  <div class="tierhead"><span class="badge b-doc">Tier 3 · Structural / Documentation</span></div>
+  <p class="tierdesc">Cards that reshape the board rather than push on it — turning your indispensability and the entanglements into clean, documented positions that a court or mediator can see at a glance.</p>
+  <div class="cards">
+
+    <div class="card t-doc"><h3><span class="k">D1</span>The honest dependency / risk register</h3>
+      <p>A calm, factual document: what systems exist, who depends on you, and what needs attention if you're not around (WiFi, cybersecurity, Home Assistant, RCU, electrical).</p>
+      <p class="how"><b>Why it's a card, not a threat:</b> It's <em>information</em>, professionally presented. It makes the continuity risk undeniable without you ever saying "or else". Facts do the arguing.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Information ≠ threat</span></div>
+    </div>
+
+    <div class="card t-doc"><h3><span class="k">D2</span>Paid, documented handover — offered <em>in exchange</em> for settlement</h3>
+      <p>Offer a proper transition dossier (configs, credentials that are theirs, plans) as a deliverable that completes <strong>on settlement</strong>.</p>
+      <p class="how"><b>Key distinction:</b> You are <em>selling an orderly handover</em>, not <em>holding property hostage</em>. Settle → you hand over cleanly and charge for the handover work. This is lawful; withholding what's theirs is not (see red lines).</p>
+      <div class="meta"><span class="chip lvl2">Escalation: med-high</span><span class="chip">Get IP ownership advice</span></div>
+    </div>
+
+    <div class="card t-doc"><h3><span class="k">D3</span>Regularise your own status</h3>
+      <p>Clarify in writing whether you are contractor or employee, what the payroll drip (every 24th) covers, and whether the reno debt is inside or outside it.</p>
+      <p class="how"><b>Why:</b> The 24 Mar "it's inside your monthly salary" line is being used to blur the lump-sum debt into salary. Un-blur it on paper.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Clarity</span></div>
+    </div>
+
+    <div class="card t-doc"><h3><span class="k">D4</span>De-tangle the cross-invoices</h3>
+      <p>If TechNext genuinely owes Yvonne's firm for corp-sec/accounting, pay it or dispute it <em>on its own merits</em> — then that lever is gone.</p>
+      <p class="how"><b>Why:</b> Removes the "pay your invoice first" (11 Mar) counter-move. Never accept netting-off unless documented and the reno figure is confirmed first.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: low-med</span><span class="chip">Neutralises a lever</span></div>
+    </div>
+
+    <div class="card t-doc"><h3><span class="k">D5</span>Preserve the full evidence bundle now</h3>
+      <p>Export the complete, unfiltered WhatsApp chat (with media), archive every bill version, the opex submission, the Google Sheet with revision history.</p>
+      <p class="how"><b>Why:</b> The screenshots are filtered ("payment" search). Do a full export before anything escalates or anyone edits/deletes messages.</p>
+      <div class="meta"><span class="chip lvl1">Escalation: none</span><span class="chip">Do this today</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ TIER 4 HARD ============ -->
+<div class="tier">
+  <div class="tierhead"><span class="badge b-hard">Tier 4 · Formal / Hard</span></div>
+  <p class="tierdesc">The escalation ladder. Each rung is reversible before you climb the next, and each is fully compatible with "I still value the friendship, I just need this closed." Use only after Tier 1 has created the record and a deadline has lapsed.</p>
+  <div class="cards">
+
+    <div class="card t-hard"><h3><span class="k">H1</span>Mediation</h3>
+      <p>Neutral third party (e.g. a community/commercial mediation centre). Often resolves disputes between parties who want to keep the relationship.</p>
+      <p class="how"><b>When:</b> If she engages but stalls on a date. Low-cost, face-saving, non-public.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: med-high</span><span class="chip">Relationship-friendly</span></div>
+    </div>
+
+    <div class="card t-hard"><h3><span class="k">H2</span>Lawyer's letter of demand</h3>
+      <p>A solicitor's letter stating the amount, the basis, and a payment deadline, with escalation flagged.</p>
+      <p class="how"><b>Why:</b> Clients who pay other vendors normally often pay immediately on a lawyer's letter. Frequently the whole endgame.</p>
+      <div class="meta"><span class="chip lvl3">Escalation: high</span><span class="chip">High success rate</span></div>
+    </div>
+
+    <div class="card t-hard"><h3><span class="k">H3</span>Small Claims Tribunal / civil claim</h3>
+      <p>File a claim sized to the amount. Your record (admitted debt, missed written deadline, no dispute in 6 months) makes it unusually clean.</p>
+      <p class="how"><b>Note:</b> Check the tribunal's monetary limit and time-bar for your jurisdiction; above the limit it's a civil suit.</p>
+      <div class="meta"><span class="chip lvl3">Escalation: high</span><span class="chip">Get legal advice on forum</span></div>
+    </div>
+
+    <div class="card t-hard"><h3><span class="k">H4</span>Statutory demand (heavy — advice first)</h3>
+      <p>If the debtor is a company and the debt is undisputed and above the threshold, a formal statutory demand is a strong instrument.</p>
+      <p class="how"><b>Caution:</b> Powerful and aggressive; wrong use (if the debt is genuinely disputed) can backfire. Only on a lawyer's advice.</p>
+      <div class="meta"><span class="chip lvl3">Escalation: very high</span><span class="chip">Lawyer-gated</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ WILD ============ -->
+<div class="tier">
+  <div class="tierhead"><span class="badge b-wild">Wild cards · Situational</span></div>
+  <p class="tierdesc">Context-specific plays that don't sit on the escalation ladder. Powerful, but each carries a catch — read the fine print before playing.</p>
+  <div class="cards">
+
+    <div class="card t-wild"><h3><span class="k">W1</span>Let the vendors apply their own pressure</h3>
+      <p>Tricomp (unpaid), Yeemax (angry at re-checking a 6-month-old invoice), Skymac (stretched) are already unhappy — with SmartSpace, not you.</p>
+      <p class="how"><b>Play:</b> Stop shielding Yvonne from it (see L2). You don't stir it up — you simply stop absorbing it. Their pressure is independent and credible.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Don't weaponise — just stop buffering</span></div>
+    </div>
+
+    <div class="card t-wild"><h3><span class="k">W2</span>The genuine walk-away</h3>
+      <p>Real, credible willingness to end the ongoing arrangement (with proper notice + orderly handover) is your ultimate leverage.</p>
+      <p class="how"><b>Why it only works if real:</b> Bluffing a walk-away to someone who runs out the clock in meetings fails. Be ready to actually do it.</p>
+      <div class="meta"><span class="chip lvl3">Escalation: high</span><span class="chip">Must be genuine</span></div>
+    </div>
+
+    <div class="card t-wild"><h3><span class="k">W3</span>Deadline + stated consequence, then follow through</h3>
+      <p>One clear offer, one date, one consequence ("after [date], discounts are withdrawn and I instruct a lawyer"). Then actually do it.</p>
+      <p class="how"><b>Why:</b> The whole pattern relies on you never enforcing. Enforcing <em>once</em> resets every future interaction in your favour.</p>
+      <div class="meta"><span class="chip lvl2">Escalation: medium</span><span class="chip">Credibility card</span></div>
+    </div>
+
+    <div class="card t-wild"><h3><span class="k">W4</span>The reputational card — handle with tongs</h3>
+      <p>You share a professional/social network. How SmartSpace treats vendors is, factually, known in that network.</p>
+      <p class="how"><b>Caution:</b> Never threaten to damage reputation and never spread anything untrue — that invites a defamation claim and burns the friendship for good. At most, be honest if directly asked by peers. Lowest-priority card; easy to misplay.</p>
+      <div class="meta"><span class="chip lvl3">Escalation: high</span><span class="chip">Legal + relationship risk</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ RED LINES ============ -->
+<h2><span class="num">02</span>Cards you must <span style="color:var(--red)">not</span> play</h2>
+<p class="lead">These feel tempting because your operational control is total. Every one of them destroys your greatest asset — clean hands — and can turn a debt you're owed into a crime you committed. Off the table, permanently.</p>
+<div class="redbox">
+  <h3>The red lines</h3>
+  <ul class="redlist">
+    <li><span class="no">✕</span><b>Do not withhold, change, or "lose" passwords/access to systems SmartSpace owns.</b> That's the difference between a creditor and someone committing unauthorised-access / extortion. It hands Yvonne a police report and a counterclaim.</li>
+    <li><span class="no">✕</span><b>Do not disable, degrade, throttle, or "let fail" anything.</b> WiFi, cybersecurity, Home Assistant, the Room Control Unit, electrical — no sabotage, no engineered outages, no "accidentally" breaking things. Even letting something fail on purpose is sabotage.</li>
+    <li><span class="no">✕</span><b>Do not delete or corrupt configs, plans, floor plans, or data.</b> Retaining your own working files/IP until paid may be defensible — destroying anything is not. Get advice on who owns what <em>before</em> touching it.</li>
+    <li><span class="no">✕</span><b>Do not misuse the accounting-system access you were given.</b> You have access to their finance system for legitimate work. Using it for anything else, or removing/altering data, is a serious offence.</li>
+    <li><span class="no">✕</span><b>Do not plant traps, backdoors, kill-switches, or time-bombs.</b> Anything designed to break later is criminal intent, and it will be found in discovery.</li>
+    <li><span class="no">✕</span><b>Do not make the "equipment might have been taken" thing reciprocal.</b> Don't counter with your own accusations of theft or bad faith you can't prove. Keep it clean: you're owed money for work done, full stop.</li>
+    <li><span class="no">✕</span><b>Do not threaten to leak data or reputation-bomb.</b> Threats-for-payment is blackmail/extortion regardless of how you're owed. State facts if asked; never trade silence for money.</li>
+  </ul>
+  <p style="margin:12px 4px 4px;font-size:14px;"><b>The clean-hands principle:</b> withholding your <em>future labour</em> is lawful leverage. Withholding or harming <em>their property</em> is not. When a card is ambiguous, ask: "Am I refusing to give more, or am I taking away what's theirs?" Only the first kind is safe to play.</p>
+</div>
+
+<!-- ============ SEQUENCE ============ -->
+<h2><span class="num">03</span>The recommended sequence</h2>
+<p class="lead">Cards are strongest played in order. Each phase completes before the next; each is a natural off-ramp if she pays.</p>
+<div class="seq">
+  <div class="step"><div class="n">0</div><div>
+    <h4>Phase 0 — Secure the record (today)</h4>
+    <p>Full unfiltered chat export, archive all bill versions + opex + Google Sheet history. Do this before anything moves.</p>
+    <div class="plays">Cards: D5</div>
+  </div></div>
+  <div class="step"><div class="n">1</div><div>
+    <h4>Phase 1 — Clarify &amp; anchor (week 1)</h4>
+    <p>Consolidated statement, ask her to confirm the amount, lock in "no deductions", separate the three threads. All friendly, all in writing.</p>
+    <div class="plays">Cards: S1 · S2 · S5 · S6 · L7</div>
+  </div></div>
+  <div class="step"><div class="n">2</div><div>
+    <h4>Phase 2 — Dated demand + stop the free tap (weeks 1–2)</h4>
+    <p>Send the demand with a 14-day date. Simultaneously stop free work and hand vendor coordination back. Meetings only with a written agenda + recap.</p>
+    <div class="plays">Cards: S3 · S4 · L1 · L2 · W3</div>
+  </div></div>
+  <div class="step"><div class="n">3</div><div>
+    <h4>Phase 3 — Tie past to future (if the date slips)</h4>
+    <p>Pause future deliverables, condition the next project on clearing the old one, reprice future work, give notice on the monthly service. De-tangle the cross-invoices.</p>
+    <div class="plays">Cards: L3 · L4 · L5 · L6 · D3 · D4 · D1</div>
+  </div></div>
+  <div class="step"><div class="n">4</div><div>
+    <h4>Phase 4 — Formalise (deadline lapsed)</h4>
+    <p>Mediation if she'll engage; otherwise a lawyer's letter of demand. Offer the paid, documented handover as the settlement deliverable.</p>
+    <div class="plays">Cards: H1 · H2 · D2</div>
+  </div></div>
+  <div class="step"><div class="n">5</div><div>
+    <h4>Phase 5 — Enforce</h4>
+    <p>Small Claims / civil claim (or statutory demand on advice). Genuine walk-away with proper notice. Follow through — this is what makes every earlier card credible.</p>
+    <div class="plays">Cards: H3 · H4 · W2</div>
+  </div></div>
+</div>
+
+<!-- ============ BRANCHES ============ -->
+<h2><span class="num">04</span>Decision triggers — when to advance</h2>
+<div class="wraptable">
+<table>
+  <thead><tr><th>If Yvonne…</th><th>Read it as</th><th>Play</th></tr></thead>
+  <tbody>
+    <tr><td>Confirms the amount in writing</td><td>Debt now admitted — huge win</td><td><b>Hold at Phase 2.</b> Get a payment date; don't escalate while she's cooperating.</td></tr>
+    <tr><td>Replies "will check" / goes quiet again</td><td>The stall pattern, repeating</td><td><b>Advance to Phase 3.</b> Stop free work; tie past to future. Silence after a written demand is evidence, not defeat.</td></tr>
+    <tr><td>Re-opens deductions / "partial payout"</td><td>Softening a fixed debt</td><td><b>L7 + S5</b> in writing immediately. Refuse; cite her own "OK" of 6 Mar.</td></tr>
+    <tr><td>Uses "pay your invoice first"</td><td>Cross-invoice leverage</td><td><b>D4.</b> Settle/dispute that invoice separately; refuse netting until the reno figure is fixed.</td></tr>
+    <tr><td>Insists on a meeting before paying</td><td>Running the clock</td><td>Attend only with written agenda pinning a transfer date + same-day recap (<b>S4</b>). Don't let it reset.</td></tr>
+    <tr><td>Pays the first tranche, stalls the rest</td><td>Partial good faith</td><td>Acknowledge, re-anchor on the balance with a new dated demand (<b>S3</b>). Keep Tier-2 pressure on the remainder.</td></tr>
+    <tr><td>14-day demand lapses with nothing</td><td>Talking has failed</td><td><b>Phase 4.</b> Mediation or lawyer's letter. You've earned the escalation and the record proves it.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<div class="callout warn" style="margin-top:26px;">
+<strong>One meta-point that beats any single card:</strong> the entire six-month pattern worked because deadlines were never enforced. You don't need the cleverest card — you need to <em>play one card fully to its conclusion</em>. Pick the sequence, set a date, and follow through once. After that, you're no longer the vendor who can be run out in a rushed meeting.
+</div>
+
+<footer>
+  Companion to <span class="kbd">README.md</span>, <span class="kbd">01-timeline.md</span>, <span class="kbd">02-analysis.md</span>, <span class="kbd">03-recommendations.md</span>, and the evidence in <span class="kbd">04-evidence-log.md</span>.
+  This is a commercial-strategy note, not legal advice. Jurisdiction-specific steps (tribunal limits, time-bars, statutory demands, IP ownership of plans) should be confirmed with a lawyer before use. Nothing here should be read as advice to withhold, damage, or misuse any system or property belonging to SmartSpace.
+</footer>
+
+</div>
+</body>
+</html>
