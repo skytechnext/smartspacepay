@@ -26,6 +26,7 @@ renovation works carried out in 2025.
 | [docs/03-recommendations.md](docs/03-recommendations.md) | Recommended negotiation position, counter-proposal, and next steps (see July 2026 update at top) |
 | [docs/04-evidence-log.md](docs/04-evidence-log.md) | Dated WhatsApp evidence log (Jan–Jul 2026) with key quotes and what they establish |
 | [docs/05-cards-to-play.html](docs/05-cards-to-play.html) | Strategic playbook — every "card" (move/step) available, by escalation tier, with sequence, decision triggers, and red-line cards not to play |
+| [docs/06-smartspace-issues.md](docs/06-smartspace-issues.md) | Root-cause profile of SmartSpace's owner behaviour (indecision, shifting agreements, avoidance, deferred completion) and how each issue maps to remedies |
 
 ## Key people
 
